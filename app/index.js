@@ -4,7 +4,8 @@ const mansplain = require('./lib/mansplain');
 
 var doc_data = fs.readFileSync(__dirname + '/../data/doc.md', 'utf-8');
 var doc_html = markdown(doc_data).html();
-var doc = mansplain("<li>npm-config(5)</li>");
+console.log(typeof doc_html);
+var doc = mansplain(doc_html);
 
 const express = require('express');
 var app = express();
