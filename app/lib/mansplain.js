@@ -1,6 +1,8 @@
 function mansplain(html) {
-  var result = html.replace('/\(\d\)/', '<a href="#">LINK</a>');
-  console.log(result);
+  var result = html.replace(/([-a-z]+)\((\d)\)/, function(match, p1, p2) {
+    var cmd = p1.replace(/[npm-]+/, "");
+    return '<a href="cli/' + cmd + '">' + p1 + '</a>';
+  });
   return result;
 };
 
