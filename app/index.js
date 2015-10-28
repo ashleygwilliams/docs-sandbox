@@ -1,7 +1,10 @@
 const fs = require('fs');
 const markdown = require('marky-markdown');
+const mansplain = require('./lib/mansplain');
+
 var doc_data = fs.readFileSync(__dirname + '/../data/doc.md', 'utf-8');
-var doc = markdown(doc_data).html();
+var doc_html = markdown(doc_data).html();
+var doc = mansplain("<li>npm-config(5)</li>");
 
 const express = require('express');
 var app = express();
